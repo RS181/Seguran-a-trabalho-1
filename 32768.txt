@@ -1,0 +1,159 @@
+O vídeo é uma forma poderosa de provar o seu ponto de vista. Quando clica em Vídeo Online, pode colar o código incorporado para o vídeo que quer adicionar. Pode também escrever uma palavra-chave para procurar online o vídeo que melhor se adapta ao seu documento. Para dar um ar de produção profissional ao seu documento, o Word disponibiliza desenhos de cabeçalho, rodapé, folha de rosto e caixas de texto que se complementam entre si.
+Por exemplo, pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral que combinam entre si. Clique em Inserir e escolha os elementos que quiser das diferentes galerias. Os temas e estilos também contribuem para manter o seu documento coordenado. Quando clica em Estrutura e escolhe um novo Tema, as imagens, gráficos e gráficos SmartArt são alterados para que combinem com o seu novo tema.
+Quando aplica estilos, os seus títulos alteram-se para combinar com o novo tema. Poupe tempo no Word com novos botões que aparecem onde precisa deles. Para alterar a forma como uma imagem se adequa ao seu documento, clique nela e aparecerá um botão para opções de esquema junto à mesma. Quando trabalha numa tabela, clique onde quiser para adicionar uma linha ou uma coluna e  clique no sinal de adição.
+O vídeo é uma forma poderosa de provar o seu ponto de vista. Quando clica em Vídeo Online, pode colar o código incorporado para o vídeo que quer adicionar. Pode também escrever uma palavra-chave para procurar online o vídeo que melhor se adapta ao seu documento. Para dar um ar de produção profissional ao seu documento, o Word disponibiliza desenhos de cabeçalho, rodapé, folha de rosto e caixas de texto que se complementam entre si. Por exemplo, pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral que combinam entre si. Clique em Inserir e escolha os elementos que quiser das diferentes galerias.
+Os temas e estilos também contribuem para manter o seu documento coordenado. Quando clica em Estrutura e escolhe um novo Tema, as imagens, gráficos e gráficos SmartArt são alterados para que combinem com o seu novo tema. Quando aplica estilos, os seus títulos alteram-se para combinar com o novo tema. Poupe tempo no Word com novos botões que aparecem onde precisa deles. Para alterar a forma como uma imagem se adequa ao seu documento, clique nela e aparecerá um botão para opções de esquema junto à mesma. Quando trabalha numa tabela, clique onde quiser para adicionar uma linha ou uma coluna e  clique no sinal de adiçao.
+Ler é também mais fácil com a nova vista de Leitura. Pode fechar partes do documento e concentrar-se no texto que quiser. Se precisar de parar de ler antes de chegar ao final, o Word lembra-se do local onde ficou - mesmo noutro dispositivo. O vídeo é uma forma poderosa de provar o seu ponto de vista. Quando clica em Vídeo Online, pode colar o código incorporado para o vídeo que quer adicionar. Pode também escrever uma palavra-chave para procurar online o vídeo que melhor se adapta ao seu documento.
+Para dar um ar de produção profissional ao seu documento, o Word disponibiliza desenhos de cabeçalho, rodapé, folha de rosto e caixas de texto que se complementam entre si. Por exemplo, pode adicionar uma folha de rosto, um cabeçalho e uma barra lateral que combinam entre si. Clique em Inserir e escolha os elementos que quiser das diferentes galerias. Os temas e estilos também contribuem para manter o seu documento coordenado. Quando clica em Estrutura e escolhe um novo Tema, as imagens, gráficos e gráficos SmartArt são alterados para que combinem com o seu novo tema. Quando aplica estilos, os seus títulos alteram-se para combinar com o novo tema.
+Poupe tempo no Word com novos botões que aparecem onde precisa deles. Para alterar a forma como uma imagem se adequa ao seu documento, clique nela e aparecerá um botão para opções de esquema junto à mesma. Quando trabalha numa tabela, clique onde quiser ser o que eu sou pq sou feliz neste lugar natal .hhhhhhhhhwdwqbdjuvdkhq hsqvsvgwdvwxdjbhqkabqsbnnksqbbqhksbqka 222
+ASSIGNMENT #1: Performance Benchmarking of Cryptographic Mechanisms
+Due date: March 22, 23:59
+Grading: Assignment #1 is worth 2 points
+TO BE DONE IN GROUPS OF TWO (MANDATORY)
+[ Cryptography hazmat python manual: https://cryptography.io/en/latest/hazmat/primitives/ ]
+In this exercise you should measure the time AES, RSA and SHA take to process files of different sizes, using a
+python implementation of the encryption/description and hash mechanisms.
+Some notes:
+• You should measure the time of cryptographic operations/algorithms only, not including the time for generation
+of files and others side aspects.
+• If you use padding, this may affect the results specially for small file sizes
+A. Generate random text files with the following sizes:
+• For AES (in bytes): 8, 64, 512, 4096, 32768, 262144, 2097152
+• For SHA (in bytes): 8, 64, 512, 4096, 32768, 262144, 2097152
+• For RSA (in bytes): 2, 4, 8, 16, 32, 64, 128
+B. Encrypt and decrypt all these files using AES. Employ a key of 256 bits. Measure the time it takes to encrypt
+and decrypt each of the files. To do this, you might want to use the python module timeit.
+Make sure to produce statistically significant results. Do results change if you run a fixed algorithm over
+the same file multiple times? And what if you run an algorithm over multiple randomly generated files
+of fixed size?
+C. Using the python module for RSA encryption and decryption, measure the time of RSA encryption and decryption
+for the file sizes listed in part A, with a key of size 2048 bits (minimum recommended for RSA).
+D. Measure the time for SHA-256 hash generation for the file sizes listed in part a.
+E. Prepare a report of your observations, including the following information:
+• Code implemented for points b., c., and d. above
+• Brief explanation of the main components of the code (the rest should be submitted in a separate compressed
+file)
+• Explain how you generated/obtained the results – must be statistically significant. This must include a
+description of the experimental setup (e.g. computer characteristics, OS, software versions).
+• Plots showing: (i) AES encryption/decryption times; (ii) RSA encryption times; (iii) RSA decryption times;
+and (iv) SHA digests generation times (plots can be combined for easier comparison). In these graphs, the
+X axis should plot the file sizes in units of bytes, and the Y axis should plot time measurements in units of
+microseconds (us).
+1
+• The report should also analyze and explain the performance results of:
+– Comparison between AES encryption and RSA encryption.
+– Comparison between AES encryption and SHA digest generation.
+– Comparison between RSA encryption and decryption times.
+Submit your report in moodle.
+A inteligência artificial (de sigla: IA; do inglês: artificial intelligence, de sigla: AI) é um campo de estudo multidisciplinar que abrange varias áreas do conhecimento.[1][2] É também um conjunto de novas tecnologias que permitem aos aparelhos smart executarem várias funções avançadas de modo quase autônomo,[2][3] representanto um marco histórico na computação moderna.[3] Embora seu desenvolvimento tenha avançado mais na ciência da computação, sua abordagem interdisciplinar envolve contribuições de diversas disciplina.
+
+Algumas das principais áreas relacionadas à IA incluem:
+
+Ciência da Computação: A ciência da computação desempenha um papel central na IA, fornecendo as bases teóricas e práticas para o desenvolvimento de algoritmos, modelos e técnicas computacionais para simular a inteligência humana.
+Matemática e Estatística: A matemática e a estatística fornecem os fundamentos teóricos para a modelagem e análise de algoritmos de IA, incluindo aprendizagem de máquina, redes neurais e processamento de dados.
+Aprendizagem de Máquina (Machine Learning): A aprendizagem de máquina é uma subárea da IA que se concentra no desenvolvimento de algoritmos que permitem aos computadores aprender e melhorar com base em dados. Isso envolve a aplicação de técnicas estatísticas e algoritmos de otimização.
+Ciência Cognitiva: A ciência cognitiva estuda os processos mentais e a inteligência humana, e suas contribuições para a IA estão relacionadas à compreensão e modelagem dos processos cognitivos para o desenvolvimento de sistemas inteligentes.
+Neurociência Computacional: A neurociência computacional busca entender o funcionamento do cérebro humano e aplicar esses insights no desenvolvimento de modelos e algoritmos de IA inspirados no cérebro.
+Filosofia da Mente: A filosofia da mente explora questões relacionadas à natureza da mente, da consciência e da inteligência, oferecendo perspectivas teóricas importantes para o campo da IA.
+Linguística Computacional: A linguística computacional envolve o processamento de linguagem natural (PLN), que se concentra no desenvolvimento de algoritmos e técnicas para que os computadores compreendam e processem a linguagem humana.
+É difícil definir especificamente a Inteligência Artificial, mas ao longo do tempo seguiu essas quatro linhas de pensamento:[1]
+
+Sistemas computacionais que pesam semelhante aos humanos... “O novo e interessante esforço para fazer os computadores pensarem... máquinas com mentes, no sentido total e literal”. (HAUGELAND, 1985).
+Sistemas computacionais que trabalham semelhante aos humanos... “A arte de criar máquinas que executam funções que exigem inteligência quando executadas por pessoas.” (KURZWEIL, 1990).
+Sistemas computacionais que pensam racionalmente... “O estudo das faculdades mentais pelo seu uso de modelos computacionais.” (CHARNIAK; MCDERMOTT, 1985).
+Sistemas computacionais que trabalham racionalmente... “A Inteligência Computacional é o estudo do projeto de agentes inteligentes.” (POOLE et al., 1998).
+É um conceito amplo e que recebe tantas definições quanto significados diferentes à palavra inteligência.[4] É possível considerar algumas características básicas desses sistemas, como a capacidade de raciocínio (aplicar regras lógicas a um conjunto de dados disponíveis para chegar a uma conclusão), aprendizagem (aprender com os erros e acertos para que no futuro possa agir de maneira mais eficaz), reconhecer padrões (tanto padrões visuais e sensoriais, como também padrões de comportamento) e inferência (capacidade de conseguir aplicar o raciocínio nas situações do nosso cotidiano).[4]
+
+O desenvolvimento da área de estudo começou logo após a Segunda Guerra Mundial, com o artigo "Computing Machinery and Intelligence" do matemático inglês Alan Turing,[5] e o próprio nome foi cunhado em 1956.[6][7] Seus principais idealizadores foram os cientistas Herbert Simon, Allen Newell, John McCarthy, Warren McCulloch, Walter Pitts e Marvin Minsky. A construção de máquinas inteligentes interessa à humanidade há muito tempo, havendo na história tanto um registro significante de autômatos mecânicos (reais) quanto de personagens fictícios construídos pelo homem com inteligência própria, tais como o Golem e o Frankenstein. Tais relatos, lendas e ficções demonstram expectativas contrastantes do homem, de fascínio e de medo, em relação à Inteligência Artificial.[8][9]
+
+Apenas recentemente, com o surgimento do computador moderno, é que a inteligência artificial ganhou meios e massa crítica para se estabelecer como ciência integral, com problemáticas e metodologias próprias. Desde então, seu desenvolvimento tem extrapolado os clássicos programas de xadrez ou de conversão e envolvido áreas como visão computacional, análise e síntese da voz, lógica difusa, redes neurais artificiais e muitas outras. Inicialmente, os modelos de IA visavam reproduzir o pensamento humano. Posteriormente, no entanto, tais modelos abraçaram a ideia de reproduzir capacidades humanas como criatividade, auto aperfeiçoamento e uso da linguagem. Porém, o conceito de inteligência artificial ainda é bastante difícil de se definir. Por essa razão, Inteligência Artificial foi (e continua sendo) uma noção que dispõe de múltiplas interpretações, não raro conflitantes ou circulares.[10]
+
+História
+Ver artigo principal: História da inteligência artificial
+O interesse no desenvolvimento de máquinas autônomas capazes de simular o pensamento humano e de realizar varias tarefas cresceu vertiginosamente nas últimas décadas, da segunda metade do século XX, realizando assim os primeiros estudos sobre inteligência artificial (IA) a um propósito comum, a partir de iniciativas de cientistas de diversas áreas, como: psicologia, ciência cognitiva, ciência da computação e, robótica.[2] Ferramentas eficientes em analisar problemas e oferecer soluções e planejamentos (tomada de decisão), automatização de tarefas no cotidiano das pessoas.[2]
+
+Mas apesar dos estudos serem modernos, o conceito de inteligência artificial não é contemporâneo; Aristóteles (professor de Alexandre, o Grande) sonhava em substituir a mão-de-obra escrava por ferramentas autônomas, sendo esta possivelmente a primeira idéia de Inteligência Artificial relatada, que a ciência da computação exploraria muito tempo depois.[11] O desenvolvimento dessa ideia ocorreu plenamente no Século XX, principalmente na década de 1950, com pensadores como Herbert Simon e John McCarthy. Inicialmente os teste em IA foram repletos de sucessos – porém limitados devido o desempenho reduzido dos primeiros computadores - oque causava surpresa, foi o fato de um computador realizar atividade remotamente inteligente.[12]
+
+O sucesso inicial prosseguiu com o General Problem Solver (Solucionador de problemas gerais) ou GPS, desenvolvido por Newell e Simon.[13] Esse programa foi projetado para imitar protocolos humanos de resolução de problemas. Dentro da classe limitada de quebra-cabeças com a qual podia lidar, verificou-se que a ordem em que os seres humanos abordavam os mesmos problemas. Desse modo, o GPS talvez tenha sido o primeiro programa a incorporar a abordagem de “pensar de forma humana”.
+
+Desde o início os fundamentos da inteligência artificial tiveram o suporte de várias disciplinas que contribuíram com ideias, pontos de vista e técnicas para a IA. Os filósofos (desde 400 a.C.) tornaram a IA concebível, considerando as ideias de que a mente é, em alguns aspectos, semelhante a uma máquina, de que ela opera sobre o conhecimento codificado em alguma linguagem interna e que o pensamento pode ser usado para escolher as ações que deverão ser executadas. Por sua vez, os matemáticos forneceram as ferramentas para manipular declarações de certeza lógica, bem como declarações incertas e probabilísticas. Eles também definiram a base para a compreensão da computação e do raciocínio sobre algoritmos.
+
+Os economistas formalizaram o problema de tomar decisões que maximizam o resultado esperado para o tomador de decisões. Os psicólogos adotaram a ideia de que os seres humanos e os animais podem ser considerados máquinas de processamento de informações. Os linguistas mostraram que o uso da linguagem se ajusta a esse modelo. Os engenheiros de computação fornecem os artefatos que tornam possíveis as aplicações de IA. Os programas de IA tendem a ser extensos e não poderiam funcionar sem os grandes avanços em velocidade e memória que a indústria de informática tem proporcionado.
+
+Atualmente, a IA abrange uma enorme variedade de subcampos. Dentre esses subcampos está o estudo de modelos conexionistas ou redes neurais. Uma rede neural pode ser vista como um modelo matemático simplificado do funcionamento do cérebro humano.[14] Este consiste de um número muito grande de unidades elementares de processamento, ou neurônios, que recebem e enviam estímulos elétricos uns aos outros, formando uma rede altamente interconectada.
+
+No processamento, são compostos os estímulos recebidos conforme a intensidade de cada ligação, produzindo um único estímulo de saída. É o arranjo das interconexões entre os neurônios e as respectivas intensidades que define as principais propriedades e o funcionamento de uma RN. O estudo das redes neurais ou o conexionismo se relaciona com a capacidade dos computadores aprenderem e reconhecerem padrões. Podemos destacar também o estudo da biologia molecular na tentativa de construir vida artificial e a área da robótica, ligada à biologia e procurando construir máquinas que alojem vida artificial. Outro subcampo de estudo é a ligação da IA com a Psicologia, na tentativa de representar na máquina os mecanismos de raciocínio e de procura.
+
+Nos últimos anos, houve uma revolução no trabalho em inteligência artificial, tanto no conteúdo quanto na metodologia. Agora, é mais comum usar as teorias existentes como bases, em vez de propor teorias inteiramente novas, fundamentar as informações em teoremas rigorosos ou na evidência experimental rígida, em vez de utilizar como base a intuição e destacar a relevância de aplicações reais em vez de exemplos hipotéticos.
+
+A utilização da IA permite obter não somente ganhos significativos de performance, mas também possibilita o desenvolvimento de aplicações inovadoras, capazes de expandir de forma extraordinária nossos sentidos e habilidades intelectuais. Cada vez mais presente, a inteligência artificial simula o pensamento humano e se alastra por nosso cotidiano. Em maio de 2017 no Brasil, foi criada a ABRIA (Associação Brasileira de Inteligência Artificial) com o objetivo de mapear iniciativas brasileiras no setor de  inteligência artificial, englobando os esforços entre as empresas nacionais e formação de mão de obra especializada. Esse passo reforça que, atualmente, a inteligência artificial é impactante no setor econômico.
+Investigação na IA experimental
+A inteligência artificial começou como um campo experimental nos anos 50 com pioneiros como Allen Newell e Herbert Simon, que fundaram o primeiro laboratório de inteligência artificial na Universidade Carnegie Mellon, e McCarty que juntamente com Marvin Minsky, que fundaram o MIT AI Lab em 1959. Foram eles alguns dos participantes na famosa conferência de verão de 1956 em Darthmouth College.[15]
+
+Historicamente, existem dois grandes estilos de investigação em IA: IA "neats" e IA "scruffies". A IA "neats", limpa, clássica ou simbólica. Envolve a manipulação de símbolos e de conceitos abstractos, e é a metodologia utilizada na maior parte dos sistemas periciais.
+
+Paralelamente a esta abordagem existe a abordagem IA "scruffies", ou "coneccionista", da qual as redes neuronais são o melhor exemplo. Esta abordagem cria sistemas que tentam gerar inteligência pela aprendizagem e adaptação em vez da criação de sistemas desenhados com o objectivo especifico de resolver um problema. Ambas as abordagems apareceram num estágio inicial da história de IA. Nos anos 60s e 70s os coneccionistas foram retirados do primeiro plano da investigação em IA, mas o interesse por esta vertente da IA foi retomada nos anos 80s, quando as limitações da IA "limpa" começaram a ser percebidas.
+
+Pesquisas sobre inteligência artificial foram intensamente custeadas na década de 1980 pela Agência de Projetos de Pesquisas Avançadas sobre Defesa (“Defense Advanced Research Projects Agency”), nos Estados Unidos, e pelo Projeto da Quinta Geração (“Fifth Generation Project”), no Japão. O trabalho subsidiado fracassou no sentido de produzir resultados imediatos, a despeito das promessas grandiosas de alguns praticantes de IA, o que levou proporcionalmente a grandes cortes de verbas de agências governamentais no final dos anos 80, e em consequência a um arrefecimento da atividade no setor, fase conhecida como O inverno da IA. No decorrer da década seguinte, muitos pesquisadores de IA mudaram para áreas relacionadas com metas mais modestas, tais como aprendizado de máquinas, robótica e visão computacional, muito embora pesquisas sobre IA pura continuaram em níveis reduzidos.
+
+Abordagens principais
+Existem duas abordagens principais para a criação de Sistemas de Inteligência Artificial: O Simbolismo e o Conexionismo.[16]
+
+A primeira, chamada de IA Simbólica,[17] propõe a representação de conhecimento por meio da manipulação de símbolos, isto é, na forma de estruturas construídas por seres humanos, normalmente baseadas em noçoes de Lógica. Ela teve grande impulso durante uma fase onde foram criados muitos Sistemas Especialistas, muitos deles basados em Lógica de Primeira Ordem, implementados em Prolog, ou em linguagens de programação derivadas desta ou especializadas, como CLIPS. Normalmente programas desse tipo têm o conhecimento programado diretamente por seres humanos, o que levou a trabalhos de elicitação de conhecimento. Apesar do sucesso inicial dos Sistemas Especialistas, a grande dificuldade de levantar e registrar conhecimento a partir de humanos e o sucesso dos processos de aprendizado de máquina a partir de dados levou a dimimuição da importância dessa vertente.[17]
+
+A segunda, chamada de IA Conexionista,[18] se baseia em um modelo matemático inspirado no funcionamento dos neurônios,[19] e depende do aprendizado de máquina baseado em grandes massas de dados para calibrar esse modelo, que normalmente começa com parâmetros aleatórios.[20] Essa abordagem, apesar de proposta muito cedo, não encontrou computadores capazes de modelar problemas complexos, apesar de ter sucesso com problemas restritos de reconhecimento de padrão, o que só acontece a partir da década de 2010, com resultados extramemente fortes no final dessa década e no início da década de 2020, a partir de modelos contendo bilhões de parametros, como o GPT-3[21] e conceitos como Redes Neurais Profundas,[22] Transformers,[23] e Atenção.[24]
+
+Em torno de 2022, a maior parte da pesquisa em IA gira em torno dos conceitos de Aprendizado de Máquina e Conexionismo, havendo também propostas para sistemas híbridos.
+
+Definição do termo
+A questão sobre o que é "inteligência artificial", mesmo como definida anteriormente, pode ser separada em duas partes: "qual a natureza do artificial" e "o que é inteligência". A primeira questão é de resolução relativamente fácil, apontando no entanto para a questão de o que poderá o homem construir.
+
+A segunda questão seria consideravelmente mais difícil, levantando a questão da consciência, identidade e mente (incluindo a mente inconsciente) juntamente com a questão de que componentes estão envolvidos no único tipo de inteligência que universalmente se aceita como estando ao alcance do nosso estudo: a inteligência do ser humano. O estudo de animais e de sistemas artificiais que não são modelos triviais começa a ser considerado como pauta de estudo na área da inteligência.
+
+Ao conceituar inteligência artificial, presume-se a interação com o ambiente, diante de necessidades reais como relações entre indivíduos semelhantes, a disputa entre indivíduos diferentes, perseguição e fuga; além da comunicação simbólica específica de causa e efeito em diversos níveis de compreensão intuitiva, consciente ou não.
+
+Suponhamos uma competição de cara ou coroa, cujos resultados sejam observados ou não. Se na segunda tentativa der o mesmo resultado que a primeira, então não existiam as mesmas chances para ambas opções iniciais. Claro que a coleta de informação em apenas duas amostragens é confiável apenas porque a quantidade de tentativas é divisível pelo número de opções de resultados prováveis.
+
+A verdade é que o conceito de cara ou coroa está associado a artigos de valor, como moedas e medalhas que podem evitar que as pessoas abandonem o jogo e induza os participantes a acompanhar os resultados até o final. Para manter a disposição do adversário em desafiar a máquina seria necessário aparentar fragilidade e garantir a continuidade da partida. Isso é muito utilizado em máquinas de cassino, sendo que vários apostadores podem ser induzidos a dispensar consideráveis quantias em apostas.
+
+A utilização de uma máquina de resultados pode compensar a ausência de um adversário, mas numa partida de xadrez, por exemplo, para que a máquina não precise armazenar todas as informações que excedem a capacidade de próprio universo imaginável são necessárias fórmulas que possam ser armazenadas para que então sejam calculadas por princípios físicos, lógicos, geométricos, e estatísticos para refletir o sistema completo em cada uma das suas partes; como a integração do Google com Wikipédia, por exemplo.
+
+Uma popular e inicial definição de inteligência artificial, introduzida por John McCarthy na famosa conferência de Dartmouth em 1956 é "fazer a máquina comportar-se de tal forma que seja chamada inteligente caso fosse este o comportamento de um ser humano." No entanto, esta definição parece ignorar a possibilidade de existir a IA forte (ver abaixo).
+
+Outra definição de Inteligência Artificial é a inteligência que surge de um "dispositivo artificial". A maior parte das definições podem ser categorizadas em sistemas que: "pensam como um humano; agem como um humano; pensam racionalmente ou agem racionalmente".[18][25]
+
+Campo de estudo
+Os principais pesquisadores e livros didáticos definem o campo como "o estudo e projeto de agentes inteligentes", onde um agente inteligente é um sistema que percebe seu ambiente e toma atitudes que maximizam suas chances de sucesso. Andreas Kaplan e Michael Haenlein definem a inteligência artificial como “uma capacidade do sistema para interpretar corretamente dados externos, aprender a partir desses dados e utilizar essas aprendizagens para atingir objetivos e tarefas específicas através de adaptação flexível”.[26] John McCarthy, quem cunhou o termo em 1956 ("numa conferência de especialistas celebrada em Darmouth Colege" Gubern, Román: O Eros Eletrónico), a define como "a ciência e engenharia de produzir sistemas inteligentes". É uma área de pesquisa da computação dedicada a buscar métodos ou dispositivos computacionais que possuam ou multipliquem a capacidade racional do ser humano de resolver problemas, pensar ou, de forma ampla, ser inteligente. Também pode ser definida como o ramo da ciência da computação que se ocupa do comportamento inteligente[27] ou ainda, o estudo de como fazer os computadores realizarem coisas que, atualmente, os humanos fazem melhor.[10]
+
+Abordagens filosóficas
+Não existe uma teoria ou paradigma unificador que orienta a pesquisa de IA. Pesquisadores discordam sobre várias questões.[28] Algumas das perguntas constantes mais longas que ficaram sem resposta são as seguintes: a inteligência artificial deve simular inteligência natural, estudando psicologia ou neurociência? Ou será que a biologia humana é tão irrelevante para a pesquisa de IA como a biologia das aves é para a engenharia aeronáutica? O comportamento inteligente pode ser descrito usando princípios simples e elegantes (como lógica ou otimização)? Ou ela necessariamente requer que se resolva um grande número de problemas completamente não relacionados? A inteligência pode ser reproduzida usando símbolos de alto nível, similares às palavras e ideias? Ou ela requer processamento "sub-simbólico"?[29] John Haugeland, que cunhou o termo GOFAI (Good Old-Fashioned Artificial Intelligence - Boa Inteligência Artificial à Moda Antiga), também propôs que a IA deve ser mais apropriadamente chamada de inteligência sintética, um termo que já foi adotado por alguns pesquisadores não-GOFAI.[30]
+
+Cibernética e simulação cerebral
+Nos anos de 1940 e 1950, um número de pesquisadores exploraram a conexão entre neurologia, teoria da informação e cibernética. Alguns deles construíram máquinas que usaram redes eletrônicas para exibir inteligência rudimentar, como as tartarugas de W. Grey Walter e a Besta de Johns Hopkins. Muitos desses pesquisadores se reuniram para encontros da Sociedade teleológica da Universidade de Princeton e o Ratio Club na Inglaterra. Em 1960, esta abordagem foi abandonada, apesar de seus elementos serem revividos na década de 1980.
+
+Sub-simbólica
+Inteligência computacional
+Interesse em redes neurais e "conexionismo" foi revivida por David Rumelhart e outros em meados de 1980. Estas e outras abordagens sub-simbólicas, como sistemas de fuzzy e computação evolucionária, são agora estudados coletivamente pela disciplina emergente inteligência computacional.
+
+IA forte e IA fraca
+Entre os teóricos que estudam o que é possível fazer com a IA existe uma discussão onde se consideram duas propostas básicas: uma conhecida como "forte" e outra conhecida como "fraca". Basicamente, a hipótese da IA forte considera ser possível criar uma máquina consciente, ou seja, afirma que os sistemas artificiais devem replicar a mentalidade humana.[31]
+
+Inteligência artificial forte
+A investigação em Inteligência Artificial Forte aborda a criação da forma de inteligência baseada em computador que consiga raciocinar e resolver problemas; uma forma de IA forte é classificada como auto-consciente.
+
+A IA forte é tema bastante controverso, pois envolve temas como consciência e fortes problemas éticos ligados ao que fazer com uma entidade que seja cognitivamente indistinguível de seres humanos.
+
+A ficção científica tratou de muitos problemas desse tipo. Isaac Asimov, por exemplo, escreveu O Homem Bicentenário, onde um robô consciente e inteligente luta para possuir um status semelhante ao de um humano na sociedade.[32] E Steven Spielberg dirigiu "A.I. Inteligência Artificial" onde um garoto-robô procura conquistar o amor de sua "mãe", procurando uma maneira de se tornar real. Por outro lado, o mesmo Asimov reduz os robôs a servos dos seres humanos ao propor as três leis da robótica.[8]
+
+Stephen Hawking alertou sobre os perigos da inteligência artificial e considerou uma ameaça à sobrevivência da humanidade[33] (ver: Rebelião das máquinas).
+
+Inteligência artificial fraca
+Trata-se da noção de como lidar com problemas não determinísticos. Uma contribuição prática de Alan Turing foi o que se chamou depois de Teste de Turing (TT),[34] de 1950: em lugar de responder à pergunta "podem-se ter computadores inteligentes?" ele formulou seu teste, que se tornou praticamente o ponto de partida da pesquisa em "Inteligência Artificial".[5]
+
+O teste consiste em se fazer perguntas a uma pessoa e um computador escondidos. Um computador e seus programas passam no TT se, pelas respostas, for impossível a alguém distinguir qual interlocutor é a máquina e qual é a pessoa. No seu artigo original ele fez a previsão de que até 2000 os computadores passariam seu teste.[34] Pois bem, há um concurso anual de programas para o TT, e o resultado dos sistemas ganhadores é tão fraco (o último tem o nome "Ella") que com poucas perguntas logo percebe-se as limitações das respostas da máquina. É interessante notar que tanto a Máquina de Turing quanto o Teste de Turing talvez derivem da visão que Turing tinha de que o ser humano é uma máquina.
+
+Há quem diga que essa visão está absolutamente errada, do ponto de vista linguístico, já que associamos à "máquina" um artefato inventado e eventualmente construído. Dizem eles: "Nenhum ser humano foi inventado ou construído". Afirma-se ainda que a comparação, feita por Turing, entre o homem e a máquina é sinônimo de sua "ingenuidade social", pois as máquinas são infinitamente mais simples do que o homem, apesar de, paradoxalmente, se afirmar que a vida é complexa. No entanto, esta linha de raciocínio é questionável, afinal de contas, os computadores modernos podem ser considerados "complexos" quando comparados ao COLOSSUS (computador cujo desenvolvimento foi liderado por Tommy Flowers, em 1943), ou a qualquer máquina do início do século XX.
+
+A inteligência artificial fraca centra a sua investigação na criação de inteligência artificial que não é capaz de verdadeiramente raciocinar e resolver problemas. Uma tal máquina com esta característica de inteligência agiria como se fosse inteligente, mas não tem autoconsciência ou noção de si. O teste clássico para aferição da inteligência em máquinas é o Teste de Turing.[34]
+
+Há diversos campos dentro da IA fraca, e um deles  
