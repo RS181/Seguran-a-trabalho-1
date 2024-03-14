@@ -1,4 +1,5 @@
 # Codigo utilizado para alinea B (AES)
+# TODO verificar se tempo esta a ser medido de forma correta
 
 from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
