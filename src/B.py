@@ -34,8 +34,8 @@ def decrypt(key,nonce,ciphertext):
 
 
 # receives input_file and n which is the number of times
-# we should measure encrypt and decrypt
-def alinea_b(input_file,n):
+# we should measure encrypt and decrypt 
+def alinea_b(input_file,n,output_result):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
         return
@@ -63,19 +63,40 @@ def alinea_b(input_file,n):
         #decrypt the text 
         plaintext = decrypt(key, nonce, ciphertext)
 
-    #show the results (with an f-string)
-    print(f"Encryption times: {encryption_times}")
-    print(f"Decryption times: {decryption_times}")
+    #save the result to output_result
+    save_data_to_file(output_result,encryption_times,decryption_times)
    
+
+#saves the measurments made to a file 
+def save_data_to_file (filename,encryption_times,decryption_times):
+    try: 
+        with open(filename,"w") as f:
+            f.write(f"Encryption times:{encryption_times}\n")
+            f.write(f"Decryption times:{decryption_times}\n")
+        print (f"Data saved successfuly to {filename}")
+    except Exception as e:
+        print(f"Error saving data to {filename}:{e}")
+
+
 
 
 #specify the file and number of times to measure encrypt and decrypt
 # Note: we consider that 100 measurements are statistically sufficient to have 
-# statistically significant results.
-#alinea_b("C:\\Users\\Jessica\\Desktop\\Segurança e privacidade\\Projetos\\Seguranca-trabalho-1\\test-files\\2.txt",100)
-current_directory = os.getcwd()
-test_file = "2.txt"
-file_path = os.path.join(current_directory,"test-files",test_file)
-print(file_path)
-alinea_b(file_path,100)
+# statistically significant results.   
+def do_test_for_AES(): 
+    current_directory = os.getcwd()
+    i = 8
+    while (i <= 2097152):
+        # current test file name 
+        test_file = str(i) + ".txt"
+        #path tp text file for encription
+        file_path = os.path.join(current_directory,"test-files",test_file)
+        #path to text file to save results
+        output_result = os.path.join(current_directory,"out","AES",test_file)
+
+        #do measurements and save the results 
+        alinea_b(file_path,100,output_result)
+        i *= 8
         
+
+do_test_for_AES()
