@@ -45,16 +45,27 @@ def alinea_b(input_file):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
         return
-    
     #print(text_to_cypher)
 
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
+    #Encryption
+    encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
+    print(f"Encription time:{encryption_time} seconds" )
+
     ciphertext = encrypt(key,nonce,text_to_cypher)
     print(ciphertext)
+
+    #Decryption
+    decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
+    print(f"Decryption time: {decryption_time} seconds")
+
     plaintext = decrypt(key,nonce,ciphertext)
     print(plaintext)
    
 
+
+# repeat(10,"Seguranca-trabalho-1\\test-files\\4.txt")
 alinea_b("Seguranca-trabalho-1\\test-files\\4.txt")
+        
