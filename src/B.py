@@ -4,13 +4,6 @@ from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
 from binascii import hexlify
 import timeit
-import os 
-
-#save some data into a specified directory
-#(we assume that directory exists)
-def save(data,type,directory,i):
-    with open(os.path.join(directory,"ciphertext_" + str(i) +"_"+ type + ".bin" ),"wb") as cphFile:
-        cphFile.write(data)
 
 #reads the contens of file an returns the string
 # or 0 if error ocurred 
@@ -45,7 +38,6 @@ def alinea_b(input_file,n):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
         return
-    #print(text_to_cypher)
 
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
@@ -63,7 +55,6 @@ def alinea_b(input_file,n):
         #encrypt the text 
         ciphertext = encrypt(key,nonce,text_to_cypher)
         
-
         #measure thte time for decryption
         decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
         decryption_times.append(decryption_time)
