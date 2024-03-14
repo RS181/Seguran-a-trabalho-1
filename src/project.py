@@ -42,7 +42,11 @@ def alinea_b(input_file):
     encryptor = cipher.encryptor()
     ciphertext = encryptor.update (text_to_cypher) + encryptor.finalize()
     print(hexlify(key))
-    save(ciphertext,"AES","Seguranca-trabalho-1\out",os.path.basename(input_file).split(".")[0])
+
+    # save to out folder with name /out/ciphertext_i_AES.bin
+    # i is the number of associated file (so if we have 2.txt
+    # i is gonna be 2)
+    #save(ciphertext,"AES","Seguranca-trabalho-1\out",os.path.basename(input_file).split(".")[0])
 
 
     # decrypt:
@@ -50,4 +54,4 @@ def alinea_b(input_file):
     pt = decryptor.update(ciphertext) + decryptor.finalize()
     print(pt)
 
-alinea_b("Seguranca-trabalho-1\\test-files\\2.txt")
+alinea_b("Seguranca-trabalho-1\\test-files\\4.txt")
