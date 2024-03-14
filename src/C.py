@@ -24,6 +24,8 @@ def encrypt(public_key,message):
     )
     return ciphertext
 
+# Decrypts a ciphered text with the private key (the one that generated the public key used in the 
+# encryption)
 def decrypt(private_key,ciphertext):
     #This portion was taken from documentation
     plaintext = private_key.decrypt(

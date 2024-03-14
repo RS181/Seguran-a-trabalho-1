@@ -1,4 +1,4 @@
-# Codigo utilizado para alinea B
+# Codigo utilizado para alinea B (AES)
 
 from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
@@ -62,7 +62,7 @@ def alinea_b(input_file,n):
         #decrypt the text 
         plaintext = decrypt(key, nonce, ciphertext)
 
-    #show the results 
+    #show the results (with an f-string)
     print(f"Encryption times: {encryption_times}")
     print(f"Decryption times: {decryption_times}")
    
