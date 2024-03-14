@@ -4,6 +4,7 @@ from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
 from binascii import hexlify
 import timeit
+import os
 
 #reads the contens of file an returns the string
 # or 0 if error ocurred 
@@ -71,5 +72,10 @@ def alinea_b(input_file,n):
 #specify the file and number of times to measure encrypt and decrypt
 # Note: we consider that 100 measurements are statistically sufficient to have 
 # statistically significant results.
-alinea_b("Seguranca-trabalho-1\\test-files\\64.txt",100)
+#alinea_b("C:\\Users\\Jessica\\Desktop\\Segurança e privacidade\\Projetos\\Seguranca-trabalho-1\\test-files\\2.txt",100)
+current_directory = os.getcwd()
+test_file = "2.txt"
+file_path = os.path.join(current_directory,"test-files",test_file)
+print(file_path)
+alinea_b(file_path,100)
         
