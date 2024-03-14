@@ -44,7 +44,7 @@ def alinea_b(input_file,n,output_result):
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    #Arrays that hold encription and decription times measurements
+    #Arrays that hold encryption and decryption times measurements
     encryption_measurements = []
     decryption_measurements = []
 
@@ -57,8 +57,8 @@ def alinea_b(input_file,n,output_result):
         #encrypt the text 
         ciphertext = encrypt(key,nonce,text_to_cypher)
         
-        #measure thte time for decryption
-        decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
+        #measure the time for decryption
+        decryption_time = timeit.timeit(lambda:decrypt(key,nonce,ciphertext),number=1)
         decryption_measurements.append(decryption_time)
 
         #decrypt the text 
