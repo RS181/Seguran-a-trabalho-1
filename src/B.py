@@ -68,6 +68,8 @@ def alinea_b(input_file,n):
    
 
 
-# repeat(10,"Seguranca-trabalho-1\\test-files\\4.txt")
-alinea_b("Seguranca-trabalho-1\\test-files\\4.txt",5)
+#specify the file and number of times to measure encrypt and decrypt
+# Note: we consider that 100 measurements are statistically sufficient to have 
+# statistically significant results.
+alinea_b("Seguranca-trabalho-1\\test-files\\64.txt",100)
         
