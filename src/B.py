@@ -34,7 +34,8 @@ def decrypt(key,nonce,ciphertext):
 
 
 # receives input_file and n which is the number of times
-# we should measure encrypt and decrypt 
+# we should measure encrypt and decrypt .Stores the results 
+# in output_result
 def alinea_b(input_file,n,output_result):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
@@ -43,28 +44,28 @@ def alinea_b(input_file,n,output_result):
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    #Arrays that hold encription and decription times 
-    encryption_times = []
-    decryption_times = []
+    #Arrays that hold encription and decription times measurements
+    encryption_measurements = []
+    decryption_measurements = []
 
     #repeat n times
     for _ in range(n):
         #measure the time for encryption
         encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
-        encryption_times.append(encryption_time)
+        encryption_measurements.append(encryption_time)
 
         #encrypt the text 
         ciphertext = encrypt(key,nonce,text_to_cypher)
         
         #measure thte time for decryption
         decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
-        decryption_times.append(decryption_time)
+        decryption_measurements.append(decryption_time)
 
         #decrypt the text 
         plaintext = decrypt(key, nonce, ciphertext)
 
     #save the result to output_result
-    save_data_to_file(output_result,encryption_times,decryption_times)
+    save_data_to_file(output_result,encryption_measurements,decryption_measurements)
    
 
 #saves the measurments made to a file 
