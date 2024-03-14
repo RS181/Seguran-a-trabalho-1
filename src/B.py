@@ -1,4 +1,4 @@
-# definir tudo aqui
+# Codigo utilizado para alinea B
 
 from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
@@ -20,36 +20,41 @@ def read(input_file):
             data = f.read()
     except FileNotFoundError:
         print("Ficheiro " + input_file + " não encontrado")
-        return 0
+        return None
     return data
+
+#encrypts data (AES algorithm CTR mode)
+def encrypt(key,nonce,plaintext):
+    cipher = Cipher(algorithms.AES(key),modes.CTR(nonce))
+    encryptor = cipher.encryptor()
+    cyphertext = encryptor.update (plaintext) + encryptor.finalize()
+    return cyphertext
+
+#decrypts data (AES algorithm CTR mode)
+def decrypt(key,nonce,ciphertext):
+    cipher = Cipher(algorithms.AES(key), modes.CTR(nonce))
+    decryptor = cipher.decryptor()
+    plaintext = decryptor.update(ciphertext) + decryptor.finalize()
+    return plaintext
+
 
 # receive file with data to encrypt (encrypt using AES)
 # saves it with a form ciphertext_i_AES.bin 
 # where i is an int 
 def alinea_b(input_file):
     text_to_cypher = read(input_file)
-    if (text_to_cypher == 0):
+    if text_to_cypher is None:
         return
-    print(text_to_cypher)
+    
+    #print(text_to_cypher)
 
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    # we use CTR mode , transforms a block cipher into a stream cipher
-    cipher = Cipher(algorithms.AES(key),modes.CTR(nonce))
-    encryptor = cipher.encryptor()
-    ciphertext = encryptor.update (text_to_cypher) + encryptor.finalize()
-    print(hexlify(key))
-
-    # save to out folder with name /out/ciphertext_i_AES.bin
-    # i is the number of associated file (so if we have 2.txt
-    # i is gonna be 2)
-    #save(ciphertext,"AES","Seguranca-trabalho-1\out",os.path.basename(input_file).split(".")[0])
-
-
-    # decrypt:
-    decryptor = cipher.decryptor()
-    pt = decryptor.update(ciphertext) + decryptor.finalize()
-    print(pt)
+    ciphertext = encrypt(key,nonce,text_to_cypher)
+    print(ciphertext)
+    plaintext = decrypt(key,nonce,ciphertext)
+    print(plaintext)
+   
 
 alinea_b("Seguranca-trabalho-1\\test-files\\4.txt")
