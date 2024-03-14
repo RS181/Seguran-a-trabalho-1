@@ -38,10 +38,10 @@ def decrypt(key,nonce,ciphertext):
     return plaintext
 
 
-# receive file with data to encrypt (encrypt using AES)
-# saves it with a form ciphertext_i_AES.bin 
-# where i is an int 
-def alinea_b(input_file):
+
+# receives input_file and n which is the number of times
+# we should measure encrypt and decrypt
+def alinea_b(input_file,n):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
         return
@@ -50,22 +50,33 @@ def alinea_b(input_file):
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    #Encryption
-    encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
-    print(f"Encription time:{encryption_time} seconds" )
+    #Arrays that hold encription and decription times 
+    encryption_times = []
+    decryption_times = []
 
-    ciphertext = encrypt(key,nonce,text_to_cypher)
-    print(ciphertext)
+    #repeat n times
+    for _ in range(n):
+        #measure the time for encryption
+        encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
+        encryption_times.append(encryption_time)
 
-    #Decryption
-    decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
-    print(f"Decryption time: {decryption_time} seconds")
+        #encrypt the text 
+        ciphertext = encrypt(key,nonce,text_to_cypher)
+        
 
-    plaintext = decrypt(key,nonce,ciphertext)
-    print(plaintext)
+        #measure thte time for decryption
+        decryption_time = timeit.timeit(lambda:encrypt(key,nonce,ciphertext),number=1)
+        decryption_times.append(decryption_time)
+
+        #decrypt the text 
+        plaintext = decrypt(key, nonce, ciphertext)
+
+    #show the results 
+    print(f"Encryption times: {encryption_times}")
+    print(f"Decryption times: {decryption_times}")
    
 
 
 # repeat(10,"Seguranca-trabalho-1\\test-files\\4.txt")
-alinea_b("Seguranca-trabalho-1\\test-files\\4.txt")
+alinea_b("Seguranca-trabalho-1\\test-files\\4.txt",5)
         
