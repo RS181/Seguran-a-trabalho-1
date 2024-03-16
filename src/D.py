@@ -1,6 +1,7 @@
 # Codigo utilizado para alinea D (SHA-256)
 # TODO verificar se tempo esta a ser medido de forma correta
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 from cryptography.hazmat.primitives import hashes
 import os
 import timeit
@@ -41,8 +42,12 @@ def alinea_d(input_file,n,output_result):
         # measure the genaration time 
         generation_time = timeit.timeit(lambda:sha256(text_to_cypher),number=1)
         generation_measurements.append(generation_time)
-
+    plots(generation_measurements)
     save_data_to_file(output_result,generation_measurements)
+def plots(generation_times,):
+    plt.figure(figsize=(10,5))
+    sns.scatterplot(generation_times)
+    plt.show()
 
 
 #saves the measurments made to a file 
@@ -69,7 +74,7 @@ def do_test_for_SHA256():
         output_result = os.path.join(current_directory,"out","SHA",test_file)
 
         #do measurements and save the results 
-        alinea_d(file_path,100,output_result)
+        alinea_d(file_path,1000,output_result)
         i *= 8
 
 

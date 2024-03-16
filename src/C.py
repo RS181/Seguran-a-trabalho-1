@@ -1,7 +1,8 @@
 # Codigo utilizado para alinea C (RSA)
 # IMPORTANTE: não consideramos para os tempos  a geração da chave privada
 # TODO verificar se tempo esta a ser medido de forma correta
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 from cryptography.hazmat.primitives.asymmetric import rsa,padding
 from cryptography.hazmat.primitives import serialization,hashes
 import os
@@ -84,10 +85,17 @@ def alinea_c(input_file,n,output_result):
 
         #decrypt the text 
         plaintext = decrypt(private_key,ciphertext)
-
+    plots(encryption_measurements,decryption_measurements)
     #save the result to output_result
     save_data_to_file(output_result,encryption_measurements,decryption_measurements)
 
+def plots(encryption_times,decryption_times):
+    plt.figure(figsize=(10,5))
+    sns.scatterplot(encryption_times)
+    plt.show()
+    plt.figure(figsize=(10,5))
+    sns.scatterplot(decryption_times)
+    plt.show()
 
 #saves the measurments made to a file 
 def save_data_to_file (filename,encryption_times,decryption_times):
@@ -98,7 +106,6 @@ def save_data_to_file (filename,encryption_times,decryption_times):
         print (f"Data saved successfuly to {filename}")
     except Exception as e:
         print(f"Error saving data to {filename}:{e}")
-
 
 
 #specify the file and number of times to measure encrypt and decrypt
@@ -116,7 +123,7 @@ def do_test_for_RSA():
         output_result = os.path.join(current_directory,"out","RSA",test_file)
 
         #do measurements and save the results 
-        alinea_c(file_path,100,output_result)
+        alinea_c(file_path,1000,output_result)
         i *= 2
 
 

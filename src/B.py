@@ -1,6 +1,7 @@
 # Codigo utilizado para alinea B (AES)
 # TODO verificar se tempo esta a ser medido de forma correta
-
+import matplotlib.pyplot as plt
+import seaborn as sns
 from cryptography.hazmat.primitives.ciphers import Cipher,algorithms,modes
 from os import urandom
 from binascii import hexlify
@@ -64,11 +65,17 @@ def alinea_b(input_file,n,output_result):
 
         #decrypt the text 
         plaintext = decrypt(key, nonce, ciphertext)
-
+    plots(encryption_measurements,decryption_measurements)
     #save the result to output_result
     save_data_to_file(output_result,encryption_measurements,decryption_measurements)
    
-
+def plots(encryption_times,decryption_times):
+    plt.figure(figsize=(10,5))
+    sns.scatterplot(encryption_times)
+    plt.show()
+    plt.figure(figsize=(10,5))
+    sns.scatterplot(decryption_times)
+    plt.show()
 #saves the measurments made to a file 
 def save_data_to_file (filename,encryption_times,decryption_times):
     try: 
@@ -97,7 +104,7 @@ def do_test_for_AES():
         output_result = os.path.join(current_directory,"out","AES",test_file)
 
         #do measurements and save the results 
-        alinea_b(file_path,100,output_result)
+        alinea_b(file_path,1000,output_result)
         i *= 8
         
 
