@@ -176,4 +176,4 @@ def time_distribution():
         scatter_plot(encryption_measurements,i)
         i *= 8 
 
-time_distribution()
+do_test_for_AES()
