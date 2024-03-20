@@ -1,5 +1,4 @@
 # Codigo utilizado para alinea B (AES)
-# TODO verificar se tempo esta a ser medido de forma correta
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
@@ -10,7 +9,7 @@ import timeit
 import os
 
 #reads the contens of file an returns the string
-# or 0 if error ocurred 
+# or None if error ocurred 
 def read(input_file):
     try:
         with open(input_file,"rb") as f:
@@ -45,14 +44,17 @@ def alinea_b(text_to_cypher,n):
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    #Arrays that hold encryption and decryption times measurements
+    # Variables that will hold the Sum of all encryption and decription measurements 
     encryption_measurements = 0
     decryption_measurements = 0
 
     #repeat n times
     for _ in range(n):
+
         #measure the time for encryption
         encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
+        
+        #add encryption time 
         encryption_measurements += encryption_time
 
         #encrypt the text 
@@ -60,17 +62,20 @@ def alinea_b(text_to_cypher,n):
         
         #measure the time for decryption
         decryption_time = timeit.timeit(lambda:decrypt(key,nonce,ciphertext),number=1)
+        
+        #add decryption time 
         decryption_measurements += decryption_time
 
         #decrypt the text 
-        plaintext = decrypt(key, nonce, ciphertext)
+        #plaintext = decrypt(key, nonce, ciphertext)
+
+    # Calculate the average time for encryption and decription 
     encryption_measurements /= n
     decryption_measurements /= n
+    
     return(encryption_measurements,decryption_measurements)
-    plots(encryption_measurements,decryption_measurements)
-    #save the result to output_result
-    save_data_to_file(output_result,encryption_measurements,decryption_measurements)
-   
+
+##TODO ADICIONAR DESCRIÇÃO
 def plots(encryption_times,decryption_times):
     x_val =[None]*len(encryption_times)
     for i in range(len(encryption_times)):
@@ -105,32 +110,38 @@ def generate_random_text(target_size):
     return text[:target_size]
 
 
-
-
-#specify the file and number of times to measure encrypt and decrypt
-# Note: we consider that 100 measurements are statistically sufficient to have 
+# Note: we consider that 1000 measurements are statistically sufficient to have 
 # statistically significant results.   
 def do_test_for_AES(): 
     current_directory = os.getcwd()
     i = 8
-    # contem as medias da encriptação/desincriptação para cada ficheiro
+    
+    #Arrays that save the Average time ,for each test file, to encrypt and decrypt respectively 
     encryption_measurements = []
     decryption_measurements = []
+
     while (i <= 2097152):
         # current test file name 
         test_file = str(i) + ".txt"
-        #path tp text file for encription
+
+        #path to text file with i bytes 
         file_path = os.path.join(current_directory,"test-files",test_file)
         #path to text file to save results
         text_to_cypher = read(file_path)
         if text_to_cypher is None:
             return
 
-        #adição dos tempos de encriptção/desicriptção 
-        encryption_time,decryption_time =alinea_b(text_to_cypher,1000)
+        #do measurements of current test file and save the results to respectiv variables
+        encryption_time,decryption_time =alinea_b(file_path,1000)
+        
+        #append the results to the respectiv array
+        
         encryption_measurements.append((encryption_time))
         decryption_measurements.append((decryption_time))
+        #move on to next test file
         i *= 8
+    
+    # makes the plot with obtained measurements 
     plots(encryption_measurements,decryption_measurements)
 
 def random_AES():
@@ -176,4 +187,5 @@ def time_distribution():
         scatter_plot(encryption_measurements,i)
         i *= 8 
 
+#Starts the test for AES
 do_test_for_AES()
