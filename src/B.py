@@ -10,7 +10,7 @@ import timeit
 import os
 
 #reads the contens of file an returns the string
-# or 0 if error ocurred 
+# or None if error ocurred 
 def read(input_file):
     try:
         with open(input_file,"rb") as f:
@@ -37,9 +37,8 @@ def decrypt(key,nonce,ciphertext):
 
 
 # receives input_file and n which is the number of times
-# we should measure encrypt and decrypt .Stores the results 
-# in output_result
-def alinea_b(input_file,n,output_result):
+# we should measure encrypt and decrypt 
+def alinea_b(input_file,n):
     text_to_cypher = read(input_file)
     if text_to_cypher is None:
         return
@@ -47,14 +46,17 @@ def alinea_b(input_file,n,output_result):
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
 
-    #Arrays that hold encryption and decryption times measurements
+    # Variables that will hold the Sum of all encryption and decription measurements 
     encryption_measurements = 0
     decryption_measurements = 0
 
     #repeat n times
     for _ in range(n):
+
         #measure the time for encryption
         encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
+        
+        #add encryption time 
         encryption_measurements += encryption_time
 
         #encrypt the text 
@@ -62,17 +64,20 @@ def alinea_b(input_file,n,output_result):
         
         #measure the time for decryption
         decryption_time = timeit.timeit(lambda:decrypt(key,nonce,ciphertext),number=1)
+        
+        #add decryption time 
         decryption_measurements += decryption_time
 
         #decrypt the text 
-        plaintext = decrypt(key, nonce, ciphertext)
+        #plaintext = decrypt(key, nonce, ciphertext)
+
+    # Calculate the average time for encryption and decription 
     encryption_measurements /= n
     decryption_measurements /= n
+    
     return(encryption_measurements,decryption_measurements)
-    plots(encryption_measurements,decryption_measurements)
-    #save the result to output_result
-    save_data_to_file(output_result,encryption_measurements,decryption_measurements)
-   
+
+##TODO ADICIONAR DESCRIÇÃO
 def plots(encryption_times,decryption_times):
     x_val =[None]*7
     for i in range(7):
@@ -90,47 +95,38 @@ def plots(encryption_times,decryption_times):
     plt.plot(x_val,y_val,'or')
     plt.show()
     return
-    plt.figure(figsize=(10,5))
-    sns.scatterplot(encryption_times)
-    plt.show()
-    plt.figure(figsize=(10,5))
-    sns.scatterplot(decryption_times)
-    plt.show()
-#saves the measurments made to a file 
-def save_data_to_file (filename,encryption_times,decryption_times):
-    try: 
-        with open(filename,"w") as f:
-            f.write(f"Encryption times:{encryption_times}\n")
-            f.write(f"Decryption times:{decryption_times}\n")
-        print (f"Data saved successfuly to {filename}")
-    except Exception as e:
-        print(f"Error saving data to {filename}:{e}")
 
 
-
-
-#specify the file and number of times to measure encrypt and decrypt
-# Note: we consider that 100 measurements are statistically sufficient to have 
+# Note: we consider that 1000 measurements are statistically sufficient to have 
 # statistically significant results.   
 def do_test_for_AES(): 
     current_directory = os.getcwd()
     i = 8
+    
+    #Arrays that save the Average time ,for each test file, to encrypt and decrypt respectively 
     encryption_measurements = []
     decryption_measurements = []
+
     while (i <= 2097152):
         # current test file name 
         test_file = str(i) + ".txt"
-        #path tp text file for encription
-        file_path = os.path.join(current_directory,"test-files",test_file)
-        #path to text file to save results
-        output_result = os.path.join(current_directory,"out","AES",test_file)
 
-        #do measurements and save the results 
-        encryption_time,decryption_time =alinea_b(file_path,1000,output_result)
+        #path to text file with i bytes 
+        file_path = os.path.join(current_directory,"test-files",test_file)
+
+        #do measurements of current test file and save the results to respectiv variables
+        encryption_time,decryption_time =alinea_b(file_path,1000)
+        
+        #append the results to the respectiv array
         encryption_measurements.append((i,encryption_time))
         decryption_measurements.append((i,decryption_time))
+        
+        #move on to next test file
         i *= 8
+    
+    # makes the plot with obtained measurements 
     plots(encryption_measurements,decryption_measurements)
         
 
+#Starts the test for AES
 do_test_for_AES()
