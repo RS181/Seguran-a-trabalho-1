@@ -139,7 +139,7 @@ def random_AES():
     decryption_measurements = []
     mean_encryption_time = 0
     mean_decryption_time = 0
-    while (i <= 262144):
+    while (i <= 2097152):
         for _ in range(100):
             #randomly generated file of size i
             file = generate_random_text(i)
@@ -161,7 +161,7 @@ def random_AES():
 def time_distribution():
     i = 8
     
-    while (i <= 262144):
+    while (i <= 2097152):
         encryption_measurements = []
         decryption_measurements = []
         for _ in range(100):
