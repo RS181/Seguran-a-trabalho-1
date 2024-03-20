@@ -39,10 +39,8 @@ def decrypt(key,nonce,ciphertext):
 # receives input_file and n which is the number of times
 # we should measure encrypt and decrypt .Stores the results 
 # in output_result
-def alinea_b(input_file,n,output_result):
-    text_to_cypher = read(input_file)
-    if text_to_cypher is None:
-        return
+def alinea_b(text_to_cypher,n):
+    
 
     key = urandom(32) # 256-bit key 
     nonce = urandom(16) 
@@ -74,37 +72,37 @@ def alinea_b(input_file,n,output_result):
     save_data_to_file(output_result,encryption_measurements,decryption_measurements)
    
 def plots(encryption_times,decryption_times):
-    x_val =[None]*7
-    for i in range(7):
+    x_val =[None]*len(encryption_times)
+    for i in range(len(encryption_times)):
         x_val[i] = i
 
-    #x_val = [x[0]/8 for x in encryption_times]
-    y_val = [x[1] for x in encryption_times]
-
+    # decryption graphic plot
+    y_val = [x for x in encryption_times]
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
     plt.show()
-    #x_val = [x[0]/8 for x in decryption_times]
-    y_val = [x[1] for x in decryption_times]
+    # decryption graphic plot
+    y_val = [x for x in decryption_times]
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
     plt.show()
     return
+def scatter_plot(encryption_times,n):
     plt.figure(figsize=(10,5))
+    # n is the file size
+    plt.xlabel(n)
+    plt.ylabel('Time')
+    #plot with all the test for a file size
     sns.scatterplot(encryption_times)
     plt.show()
-    plt.figure(figsize=(10,5))
-    sns.scatterplot(decryption_times)
-    plt.show()
-#saves the measurments made to a file 
-def save_data_to_file (filename,encryption_times,decryption_times):
-    try: 
-        with open(filename,"w") as f:
-            f.write(f"Encryption times:{encryption_times}\n")
-            f.write(f"Decryption times:{decryption_times}\n")
-        print (f"Data saved successfuly to {filename}")
-    except Exception as e:
-        print(f"Error saving data to {filename}:{e}")
+import random
+import string
+
+def generate_random_text(target_size):
+    text = ''
+    while len(text.encode('utf-8')) < target_size:
+        text += ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation + ' ') for _ in range(target_size))
+    return text[:target_size]
 
 
 
@@ -115,6 +113,7 @@ def save_data_to_file (filename,encryption_times,decryption_times):
 def do_test_for_AES(): 
     current_directory = os.getcwd()
     i = 8
+    # contem as medias da encriptação/desincriptação para cada ficheiro
     encryption_measurements = []
     decryption_measurements = []
     while (i <= 2097152):
@@ -123,14 +122,58 @@ def do_test_for_AES():
         #path tp text file for encription
         file_path = os.path.join(current_directory,"test-files",test_file)
         #path to text file to save results
-        output_result = os.path.join(current_directory,"out","AES",test_file)
+        text_to_cypher = read(file_path)
+        if text_to_cypher is None:
+            return
 
-        #do measurements and save the results 
-        encryption_time,decryption_time =alinea_b(file_path,1000,output_result)
-        encryption_measurements.append((i,encryption_time))
-        decryption_measurements.append((i,decryption_time))
+        #adição dos tempos de encriptção/desicriptção 
+        encryption_time,decryption_time =alinea_b(text_to_cypher,1000)
+        encryption_measurements.append((encryption_time))
+        decryption_measurements.append((decryption_time))
         i *= 8
     plots(encryption_measurements,decryption_measurements)
-        
 
-do_test_for_AES()
+def random_AES():
+    i = 8
+    encryption_measurements = []
+    decryption_measurements = []
+    mean_encryption_time = 0
+    mean_decryption_time = 0
+    while (i <= 262144):
+        for _ in range(100):
+            #randomly generated file of size i
+            file = generate_random_text(i)
+            plaintext = file.encode('utf-8')
+
+            #calcula os tempos de encriptção/desicriptção medios do ficheiro file 
+            encryption_time,decryption_time =alinea_b(plaintext,100)
+            #esse tempo é adicionada ao sumatorio dos tempos de todos os ficheiros de tamenho i
+            mean_encryption_time += encryption_time
+            mean_decryption_time += decryption_time
+        # calculo das medias
+        mean_encryption_time /= 10
+        mean_decryption_time /= 10
+        # contem as medias da encriptação/desincriptação para cada tamenho de ficheiro
+        encryption_measurements.append((mean_encryption_time))
+        decryption_measurements.append((mean_decryption_time))
+        i *= 8 
+    plots(encryption_measurements,decryption_measurements)    
+def time_distribution():
+    i = 8
+    
+    while (i <= 262144):
+        encryption_measurements = []
+        decryption_measurements = []
+        for _ in range(100):
+            #randomly generated file of size i
+            file = generate_random_text(i)
+            plaintext = file.encode('utf-8')
+            #calcula os tempos de encriptção/desicriptção medios do ficheiro file 
+            encryption_time,decryption_time =alinea_b(plaintext,1)
+            # contem os tamenhos encriptação/desincriptação para tameho atual
+            encryption_measurements.append((encryption_time))
+            decryption_measurements.append((decryption_time))
+        scatter_plot(encryption_measurements,i)
+        i *= 8 
+
+time_distribution()
