@@ -1,5 +1,4 @@
 # Codigo utilizado para alinea B (AES)
-# TODO verificar se tempo esta a ser medido de forma correta
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
