@@ -1,5 +1,4 @@
 # Codigo utilizado para alinea D (SHA-256)
-# TODO verificar se tempo esta a ser medido de forma correta
 import matplotlib.pyplot as plt
 import seaborn as sns
 from cryptography.hazmat.primitives import hashes
@@ -27,9 +26,8 @@ def sha256(plaintext):
     return hashed_value.hex()
 
 # receives input_file and n which is the number of times
-# we should measure encrypt and decrypt .Stores the results 
-# in output_result
-def alinea_d(input_file,n,output_result):
+# we should measure the generation
+def alinea_d(input_file,n):
     #do decode to turn into a string (because e read the file in binary form , rb)
     text_to_cypher = read(input_file).decode() 
     if text_to_cypher is None:
@@ -37,15 +35,22 @@ def alinea_d(input_file,n,output_result):
     
     # generation measurements
     generation_measurements = 0
+
     #repeat n times 
     for _ in range (n):
-        # measure the genaration time 
+        # measure the generation time 
         generation_time = timeit.timeit(lambda:sha256(text_to_cypher),number=1)
+
+        #add generation time 
         generation_measurements += generation_time
+
+    # Calculate the average time for generation 
     generation_measurements /= n
+
     return(generation_measurements)
-    plots(generation_measurements)
-    save_data_to_file(output_result,generation_measurements)
+
+
+##TODO ADICIONAR DESCRIÇÃO
 def plots(generation_times,):
     x_val =[None]*7
     for i in range(7):
@@ -58,40 +63,35 @@ def plots(generation_times,):
     plt.plot(x_val,y_val,'or')
     plt.show()
     return
-    plt.figure(figsize=(10,5))
-    sns.scatterplot(generation_times)
-    plt.show()
 
-
-#saves the measurments made to a file 
-def save_data_to_file (filename,generation_times):
-    try: 
-        with open(filename,"w") as f:
-            f.write(f"Generation times:{generation_times}\n")
-        print (f"Data saved successfuly to {filename}")
-    except Exception as e:
-        print(f"Error saving data to {filename}:{e}")
-
-#specify the file and number of times to measure encrypt and decrypt
-# Note: we consider that 100 measurements are statistically sufficient to have 
-# statistically significant results.
+# Note: we consider that 1000 measurements are statistically sufficient to have 
+# statistically significant results.   
 def do_test_for_SHA256():
     current_directory = os.getcwd()
     i = 8
+
+    #Array that save the Average time of generation ,for each test file,  
     generation_measurements =[]
+
     while (i <= 2097152):
+
         # current test file name 
         test_file = str(i) + ".txt"
-        #path tp text file for encription
+
+        # path to text file with i bytes 
         file_path = os.path.join(current_directory,"test-files",test_file)
-        #path to text file to save results
-        output_result = os.path.join(current_directory,"out","SHA",test_file)
-        generation_time =alinea_d(file_path,1000,output_result)
+
+        #do measurements of current test file and save the results to respectiv variables
+        generation_time =alinea_d(file_path,1000)
+
+        #append the result generation array
         generation_measurements.append((i, generation_time))
         
-        #do measurements and save the results 
+        #move on to next test file       
         i *= 8
+
+    # makes the plot with obtained measurements 
     plots(generation_measurements)
 
-
+#Starts the test for SHA256
 do_test_for_SHA256()
