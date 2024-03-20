@@ -36,8 +36,7 @@ def decrypt(key,nonce,ciphertext):
 
 
 # receives input_file and n which is the number of times
-# we should measure encrypt and decrypt .Stores the results 
-# in output_result
+# we should measure encrypt and decrypt 
 def alinea_b(text_to_cypher,n):
     
 
