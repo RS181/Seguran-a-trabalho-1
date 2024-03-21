@@ -20,11 +20,18 @@ def read(input_file):
     return data
 
 #encrypts data (AES algorithm CTR mode)
-def encrypt(key,nonce,plaintext):
-    cipher = Cipher(algorithms.AES(key),modes.CTR(nonce))
+def encrypt(key, nonce, plaintext):
+    cipher = Cipher(algorithms.AES(key), modes.CTR(nonce))
     encryptor = cipher.encryptor()
-    cyphertext = encryptor.update (plaintext) + encryptor.finalize()
-    return cyphertext
+    
+    # Encode plaintext to bytes using UTF-8 encoding
+    plaintext_bytes = plaintext.encode('utf-8')
+
+    # Encrypt the plaintext bytes
+    ciphertext = encryptor.update(plaintext_bytes) + encryptor.finalize()
+    
+    return ciphertext
+
 
 #decrypts data (AES algorithm CTR mode)
 def decrypt(key,nonce,ciphertext):
@@ -46,7 +53,7 @@ def alinea_b(text_to_cypher,n):
     # Variables that will hold the Sum of all encryption and decription measurements 
     encryption_measurements = 0
     decryption_measurements = 0
-
+    encryption_time = timeit.timeit(lambda:encrypt(key,nonce,text_to_cypher),number=1)
     #repeat n times
     for _ in range(n):
 
@@ -103,10 +110,14 @@ import random
 import string
 
 def generate_random_text(target_size):
-    text = ''
-    while len(text.encode('utf-8')) < target_size:
-        text += ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation + ' ') for _ in range(target_size))
-    return text[:target_size]
+    # Define the characters that can be chosen from
+    characters = string.ascii_letters + string.digits + string.punctuation + ' '
+
+    # Use random.choices() to generate a sequence of characters with length equal to target_size
+    text = ''.join(random.choices(characters, k=target_size))
+
+    # Return the generated text
+    return text
 
 
 # Note: we consider that 1000 measurements are statistically sufficient to have 
@@ -153,20 +164,20 @@ def random_AES():
         for _ in range(100):
             #randomly generated file of size i
             file = generate_random_text(i)
-            plaintext = file.encode('utf-8')
 
-            #calcula os tempos de encriptção/desicriptção medios do ficheiro file 
-            encryption_time,decryption_time =alinea_b(plaintext,100)
-            #esse tempo é adicionada ao sumatorio dos tempos de todos os ficheiros de tamenho i
+            #calculates the average times of encryption/decryption of the string file 
+            encryption_time,decryption_time =alinea_b(file,100)
+            #the time is added to the summatory of the times for all files of size i
             mean_encryption_time += encryption_time
             mean_decryption_time += decryption_time
-        # calculo das medias
+        # mean calculation
         mean_encryption_time /= 10
         mean_decryption_time /= 10
-        # contem as medias da encriptação/desincriptação para cada tamenho de ficheiro
+        # stores the average times of encryption/decryption for every file size
         encryption_measurements.append((mean_encryption_time))
         decryption_measurements.append((mean_decryption_time))
         i *= 8 
+    # plots a grafic of means by file size
     plots(encryption_measurements,decryption_measurements)    
 def time_distribution():
     i = 8
@@ -175,14 +186,14 @@ def time_distribution():
         encryption_measurements = []
         decryption_measurements = []
         for _ in range(100):
-            #randomly generated file of size i
+            # randomly generated file of size i
             file = generate_random_text(i)
-            plaintext = file.encode('utf-8')
-            #calcula os tempos de encriptção/desicriptção medios do ficheiro file 
-            encryption_time,decryption_time =alinea_b(plaintext,1)
-            # contem os tamenhos encriptação/desincriptação para tameho atual
+            # calculates the average times of encryption/decryption of the string file 
+            encryption_time,decryption_time =alinea_b(file,1)
+            # stores the average times of encryption/decryption for the current size
             encryption_measurements.append((encryption_time))
             decryption_measurements.append((decryption_time))
+        #calculates a sequencial plot of all the average times taken by random file
         scatter_plot(encryption_measurements,i)
         i *= 8 
 

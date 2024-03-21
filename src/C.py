@@ -64,7 +64,7 @@ def alinea_c(input_file,n):
     # Variables that will hold the Sum of all encryption and decription measurements 
     encryption_measurements = 0
     decryption_measurements = 0
-
+    encryption_time = timeit.timeit(lambda:encrypt(public_key,text_to_cypher),number =1)
     #repeat n times 
     for _ in range(n):
 
