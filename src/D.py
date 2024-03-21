@@ -52,11 +52,11 @@ def alinea_d(input_file,n):
 
 ##TODO ADICIONAR DESCRIÇÃO
 def plots(generation_times,):
-    x_val =[None]*7
-    for i in range(7):
+    x_val =[None]*len(generation_times)
+    for i in range(len(generation_times)):
         x_val[i] = i
 
-    #x_val = [x[0]/8 for x in encryption_times]
+    
     y_val = [x[1] for x in generation_times]
 
     plt.plot(x_val,y_val)

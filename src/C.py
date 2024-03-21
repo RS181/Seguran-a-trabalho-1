@@ -94,11 +94,10 @@ def alinea_c(input_file,n):
 
 ##TODO ADICIONAR DESCRIÇÃO
 def plots(encryption_times,decryption_times):
-    x_val =[None]*7
-    for i in range(7):
+    x_val =[None]*len(encryption_times)
+    for i in range(len(encryption_times)):
         x_val[i] = i
 
-    #x_val = [x[0]/8 for x in encryption_times]
     y_val = [x[1] for x in encryption_times]
 
     plt.plot(x_val,y_val)

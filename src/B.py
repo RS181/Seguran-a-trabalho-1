@@ -25,10 +25,10 @@ def encrypt(key, nonce, plaintext):
     encryptor = cipher.encryptor()
     
     # Encode plaintext to bytes using UTF-8 encoding
-    plaintext_bytes = plaintext.encode('utf-8')
+    #plaintext_bytes = plaintext.encode('utf-8')
 
     # Encrypt the plaintext bytes
-    ciphertext = encryptor.update(plaintext_bytes) + encryptor.finalize()
+    ciphertext = encryptor.update(plaintext) + encryptor.finalize()
     
     return ciphertext
 
@@ -81,13 +81,48 @@ def alinea_b(text_to_cypher,n):
     
     return(encryption_measurements,decryption_measurements)
 
+
+# Note: we consider that 1000 measurements are statistically sufficient to have 
+# statistically significant results.   
+def do_test_for_AES(): 
+    current_directory = os.getcwd()
+    i = 8
+    
+    #Arrays that save the Average time ,for each test file, to encrypt and decrypt respectively 
+    encryption_measurements = []
+    decryption_measurements = []
+
+    while (i <= 2097152):
+        # current test file name 
+        test_file = str(i) + ".txt"
+
+        #path to text file with i bytes 
+        file_path = os.path.join(current_directory,"test-files",test_file)
+        #path to text file to save results
+        text_to_cypher = read(file_path)
+        if text_to_cypher is None:
+            return
+
+        #do measurements of current test file and save the results to respectiv variables
+        encryption_time,decryption_time =alinea_b(text_to_cypher,1000)
+        
+        #append the results to the respectiv array
+        
+        encryption_measurements.append((encryption_time))
+        decryption_measurements.append((decryption_time))
+        #move on to next test file
+        i *= 8
+    
+    # makes the plot with obtained measurements 
+    plots(encryption_measurements,decryption_measurements)
+
 ##TODO ADICIONAR DESCRIÇÃO
 def plots(encryption_times,decryption_times):
     x_val =[None]*len(encryption_times)
     for i in range(len(encryption_times)):
         x_val[i] = i
 
-    # decryption graphic plot
+    # encryption graphic plot
     y_val = [x for x in encryption_times]
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
@@ -115,44 +150,13 @@ def generate_random_text(target_size):
 
     # Use random.choices() to generate a sequence of characters with length equal to target_size
     text = ''.join(random.choices(characters, k=target_size))
+    # Encode plaintext to bytes using UTF-8 encoding
+
+    text_bytes = text.encode('utf-8')
 
     # Return the generated text
-    return text
+    return text_bytes
 
-
-# Note: we consider that 1000 measurements are statistically sufficient to have 
-# statistically significant results.   
-def do_test_for_AES(): 
-    current_directory = os.getcwd()
-    i = 8
-    
-    #Arrays that save the Average time ,for each test file, to encrypt and decrypt respectively 
-    encryption_measurements = []
-    decryption_measurements = []
-
-    while (i <= 2097152):
-        # current test file name 
-        test_file = str(i) + ".txt"
-
-        #path to text file with i bytes 
-        file_path = os.path.join(current_directory,"test-files",test_file)
-        #path to text file to save results
-        text_to_cypher = read(file_path)
-        if text_to_cypher is None:
-            return
-
-        #do measurements of current test file and save the results to respectiv variables
-        encryption_time,decryption_time =alinea_b(file_path,1000)
-        
-        #append the results to the respectiv array
-        
-        encryption_measurements.append((encryption_time))
-        decryption_measurements.append((decryption_time))
-        #move on to next test file
-        i *= 8
-    
-    # makes the plot with obtained measurements 
-    plots(encryption_measurements,decryption_measurements)
 
 def random_AES():
     i = 8
@@ -160,7 +164,7 @@ def random_AES():
     decryption_measurements = []
     mean_encryption_time = 0
     mean_decryption_time = 0
-    while (i <= 2097152):
+    while (i <= 262144):
         for _ in range(100):
             #randomly generated file of size i
             file = generate_random_text(i)
@@ -179,17 +183,27 @@ def random_AES():
         i *= 8 
     # plots a grafic of means by file size
     plots(encryption_measurements,decryption_measurements)    
+
 def time_distribution():
+    current_directory = os.getcwd()
     i = 8
-    
+
     while (i <= 2097152):
         encryption_measurements = []
         decryption_measurements = []
-        for _ in range(100):
-            # randomly generated file of size i
-            file = generate_random_text(i)
+
+        # current test file name 
+        test_file = str(i) + ".txt"
+
+        #path to text file with i bytes 
+        file_path = os.path.join(current_directory,"test-files",test_file)
+        #path to text file to save results
+        text_to_cypher = read(file_path)
+        if text_to_cypher is None:
+            return
+        for _ in range(1000):
             # calculates the average times of encryption/decryption of the string file 
-            encryption_time,decryption_time =alinea_b(file,1)
+            encryption_time,decryption_time =alinea_b(text_to_cypher,1)
             # stores the average times of encryption/decryption for the current size
             encryption_measurements.append((encryption_time))
             decryption_measurements.append((decryption_time))
@@ -198,4 +212,4 @@ def time_distribution():
         i *= 8 
 
 #Starts the test for AES
-do_test_for_AES()
+time_distribution()
