@@ -120,15 +120,15 @@ def plots(encryption_times,decryption_times):
         x_val[i] = i
 
     # encryption graphic plot
-    y_val = [x for x in encryption_times]
-    plt.plot(x_val,y_val)
-    plt.plot(x_val,y_val,'or')
+    
+    plt.plot(x_val,encryption_times)
+    plt.plot(x_val,encryption_times,'or')
     plt.show()
 
     # decryption graphic plot
-    y_val = [x for x in decryption_times]
-    plt.plot(x_val,y_val)
-    plt.plot(x_val,y_val,'or')
+    
+    plt.plot(x_val,encryption_times)
+    plt.plot(x_val,encryption_times,'or')
     plt.show()
 
     return
@@ -168,22 +168,22 @@ def random_AES():
     decryption_measurements = []
     mean_encryption_time = 0
     mean_decryption_time = 0
-
-    while (i <= 262144):
-        for _ in range(100):
+    n = 100
+    while (i <= 2097152):
+        for _ in range(n):
             #randomly generated file of size i
             file = generate_random_text(i)
 
             #calculates the average times of encryption/decryption of the string file 
-            encryption_time,decryption_time =alinea_b(file,100)
+            encryption_time,decryption_time =alinea_b(file,n)
 
             #the time is added to the summatory of the times for all files of size i
             mean_encryption_time += encryption_time
             mean_decryption_time += decryption_time
 
         # mean calculation
-        mean_encryption_time /= 10
-        mean_decryption_time /= 10
+        mean_encryption_time /= n
+        mean_decryption_time /= n
 
         # stores the average times of encryption/decryption for every file size
         encryption_measurements.append((mean_encryption_time))
@@ -228,7 +228,7 @@ def time_distribution():
 
 ##############################################################
 #All functions available 
-#do_test_for_AES()
+do_test_for_AES()
 #random_AES()
 #time_distribution()
 ##############################################################
