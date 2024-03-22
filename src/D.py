@@ -57,12 +57,8 @@ def plots(generation_times):
     x_val =[None]*len(generation_times)
     for i in range(len(generation_times)):
         x_val[i] = i
-
-    
-    y_val = [x[1] for x in generation_times]
-
-    plt.plot(x_val,y_val)
-    plt.plot(x_val,y_val,'or')
+    plt.plot(x_val,generation_times)
+    plt.plot(x_val,generation_times,'or')
     plt.show()
 
     return
@@ -88,7 +84,7 @@ def do_test_for_SHA256():
         generation_time =alinea_d(file_path,1000)
 
         #append the result generation array
-        generation_measurements.append((i, generation_time))
+        generation_measurements.append((generation_time))
         
         #move on to next test file       
         i *= 8
