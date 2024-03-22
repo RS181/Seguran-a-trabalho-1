@@ -64,7 +64,9 @@ def alinea_c(input_file,n):
     # Variables that will hold the Sum of all encryption and decription measurements 
     encryption_measurements = 0
     decryption_measurements = 0
+
     encryption_time = timeit.timeit(lambda:encrypt(public_key,text_to_cypher),number =1)
+
     #repeat n times 
     for _ in range(n):
 
@@ -92,7 +94,7 @@ def alinea_c(input_file,n):
 
     return(encryption_measurements,decryption_measurements)
 
-##TODO ADICIONAR DESCRIÇÃO
+# Does the plot of encryption and decryption measurements
 def plots(encryption_times,decryption_times):
     x_val =[None]*len(encryption_times)
     for i in range(len(encryption_times)):
@@ -103,11 +105,14 @@ def plots(encryption_times,decryption_times):
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
     plt.show()
+
     #x_val = [x[0]/8 for x in decryption_times]
     y_val = [x[1] for x in decryption_times]
+
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
     plt.show()
+
     return
 
 
@@ -137,6 +142,7 @@ def do_test_for_RSA():
 
         #move on to next test file
         i *= 2
+        
     # makes the plot with obtained measurements 
     plots(encryption_measurements,decryption_measurements)
 
