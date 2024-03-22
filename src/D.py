@@ -35,7 +35,9 @@ def alinea_d(input_file,n):
     
     # generation measurements
     generation_measurements = 0
+
     generation_time = timeit.timeit(lambda:sha256(text_to_cypher),number=1)
+    
     #repeat n times 
     for _ in range (n):
         # measure the generation time 
@@ -50,8 +52,8 @@ def alinea_d(input_file,n):
     return(generation_measurements)
 
 
-##TODO ADICIONAR DESCRIÇÃO
-def plots(generation_times,):
+# Does the plot of generation measurements
+def plots(generation_times):
     x_val =[None]*len(generation_times)
     for i in range(len(generation_times)):
         x_val[i] = i
@@ -62,6 +64,7 @@ def plots(generation_times,):
     plt.plot(x_val,y_val)
     plt.plot(x_val,y_val,'or')
     plt.show()
+
     return
 
 # Note: we consider that 1000 measurements are statistically sufficient to have 
