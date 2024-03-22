@@ -109,8 +109,8 @@ def plots(encryption_times,decryption_times):
 
     # decryption graphic plot
     
-    plt.plot(x_val,encryption_times)
-    plt.plot(x_val,encryption_times,'or')
+    plt.plot(x_val,decryption_times)
+    plt.plot(x_val,decryption_times,'or')
     plt.show()
 
     return
